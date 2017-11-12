@@ -57,7 +57,7 @@ public class CommonElements
 // [F][2]
 //
 
-// [ ] Sort each collection
+// [X] Sort each collection
 // [ ] For each collection create an array of frequencies for each object
 // [ ] Set the smallest collection as the query collection
 // [ ] Make a 2d array [i][j] with i corresponding to the frequency of the object
@@ -69,30 +69,41 @@ public class CommonElements
 	{
 		Comparable[] commonElements = new Comparable[collections.length];
 		collections = sortCollections(collections);
-		getListFrequencies(collections);
+		getFrequency(collections);
 
 		return (commonElements);
 	}
 
-	public int getUniqueElem(Comparable[] collection)
+	public void deleteDuplicates(Comparable[][] collection, Object obj)
 	{
-		int unique = 0;
-		for (Object o : collection)
-		{
 
-		}
-		return (unique);
 	}
 
-	public Comparable[][][] getListFrequencies(Comparable[][] collections)
+	public Comparable[] getFrequencyObject(Comparable[][] collection, Comparable obj)
 	{
-		for (Comparable[] c : collections)
+		Comparable[] f = new Comparable[2];
+		int freq = 0;
+		for (Comparable c : collection)
 		{
-			getUniqueElem(c);
-		}
-		Comparable[][][] listFrequencies = new Comparable[][][];
+			if (c.compareTo(obj))
+			{
 
-		return
+			}
+		}
+		return (f);
+	}
+
+	public Comparable[][] getFrequency(Comparable[][] collection)
+	{
+		Comparable[][] freq = new Comparable[collection.length][2];
+		int i = 0;
+		for (Comparable c : collection)
+		{
+			if (c != null)
+				freq[i++] = getFrequencyObject(collection, c);
+		}
+		// reduce array
+		return (freq);
 	}
 
 	public int getComparisons()
