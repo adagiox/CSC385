@@ -58,52 +58,133 @@ public class CommonElements
 //
 
 // [X] Sort each collection
-// [ ] For each collection create an array of frequencies for each object
-// [ ] Set the smallest collection as the query collection
-// [ ] Make a 2d array [i][j] with i corresponding to the frequency of the object
-// 		from query collection and j the collection it came from
-// [ ] Add frequency of object from the non-query collection into j
+// [X] For each collection create an array of frequencies for each object
+// [X] Set the smallest collection as the query collection
+// [ ] Merge each non-query list
+// [ ] Make sure sorted
+// [ ] Compare
 // [ ] Add to commonElements each object that has k-1 length (write function to get)
 
 	public Comparable[] findCommonElements(Comparable[][] collections)
 	{
-		Comparable[] commonElements = new Comparable[collections.length];
+		Comparable[] commonElements;
+		Comparable[][][] freqList;
 		collections = sortCollections(collections);
-		getFrequency(collections);
+		freqList = getFrequency(collections);
+		commonElements = getCommonElements(freqList);
 
 		return (commonElements);
 	}
 
-	public void deleteDuplicates(Comparable[][] collection, Object obj)
+	public int getSizeList(Comparable[][] list)
 	{
-
+		return (list.length);
 	}
 
-	public Comparable[] getFrequencyObject(Comparable[][] collection, Comparable obj)
+	public Comparable[][][] setQuery(Comparable[][][] freqList)
 	{
-		Comparable[] f = new Comparable[2];
-		int freq = 0;
-		for (Comparable c : collection)
+		int min;
+		int size;
+		int i = 0;
+		int j = 0;
+		min = getSizeList(freqList[0]);
+		for (Comparable[][] c : freqList)
 		{
-			if (c.compareTo(obj))
+			size = getSizeList(c);
+			if (size < min)
 			{
+				min = size;
+				j = i;
+			}
+			i++;
+		}
+		if (j != 0)
+		{
+			Comparable[][] temp;
+			temp = freqList[0];
+			freqList[0] = freqList[j];
+			freqList[j] = temp;
+		}
+		return (freqList);
+	}
 
+	public Comparable[] getCommonElements(Comparable[][][] freqList)
+	{
+		freqList = setQuery(freqList);
+
+
+		return (commonElements);
+	}
+
+	public Comparable[] setFrequencyObject(Comparable obj, Comparable[] list, int it)
+	{
+		Comparable[] freqObj = new Comparable[list.length];
+		freqObj[0] = obj;
+		for (int i = it + 1; i < list.length; i++)
+		{
+			if (list[i].compareTo(obj) == 0)
+			{
+				for (int j = 1; j < freqObj.length; j++)
+				{
+					if (freqObj[j] == null)
+					{
+						freqObj[j] = list[i];
+						break;
+					}
+				}
+				list[i] = null;
 			}
 		}
+		return (freqObj);
+	}
+
+	public Comparable[][] getFrequencyObject(Comparable[] list)
+	{
+		Comparable[][] f = new Comparable[list.length][2];
+		int i = 0;
+		for (Comparable c : list)
+		{
+			if(c != null)
+			{
+				f[i] = setFrequencyObject(c, list, i);
+			}
+			i++;
+		}
+		f = reduceFreqList(f);
 		return (f);
 	}
 
-	public Comparable[][] getFrequency(Comparable[][] collection)
+	public Comparable[][] reduceFreqList(Comparable[][] freqList)
 	{
-		Comparable[][] freq = new Comparable[collection.length][2];
-		int i = 0;
-		for (Comparable c : collection)
+		int size = 0;
+		for (Comparable[] c : freqList)
 		{
-			if (c != null)
-				freq[i++] = getFrequencyObject(collection, c);
+			if (c[0] != null)
+			{
+				size++;
+			}
 		}
-		// reduce array
-		return (freq);
+		Comparable[][] reduced = new Comparable[size + 1][];
+		int i = 0;
+		for (Comparable[] c : freqList)
+		{
+			if (c[0] != null)
+			{
+				reduced[i++] = c;
+			}
+		}
+		return (reduced);
+	}
+
+	public Comparable[][][] getFrequency(Comparable[][] collection)
+	{
+		Comparable[][][] freqList = new Comparable[collection.length][][];
+		int i = 0;
+		for (Comparable[] list : collection)
+		{
+			freqList[i++] = getFrequencyObject(list);
+		}
+		return (freqList);
 	}
 
 	public int getComparisons()
