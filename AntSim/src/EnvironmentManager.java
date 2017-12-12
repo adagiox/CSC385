@@ -96,6 +96,8 @@ public class EnvironmentManager
 					System.out.println("Bala killed Queen!!!");
 					return false;
 				}
+				if (event.ant.type == 1 && event.ant.hasFood)
+					event.ant.currentNode.food++;
 				//System.out.println("ANT_DEATH_EVENT: " + event.ant.type);
 				env.antColony.destroyAnt(event.ant);
 			}
@@ -109,6 +111,7 @@ public class EnvironmentManager
 				//System.out.println("PHEROMONE_DECREASED");
 				if ((event.node.pheromone /= 2) == 0)
 					env.pheromonesList.remove(event.node);
+				//System.out.println(event.node.pheromone);
 			}
 			else if (event.type == AntEvent.PHEROMONE_INCREASED)
 			{
