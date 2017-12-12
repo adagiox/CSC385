@@ -23,10 +23,13 @@ public class Soldier extends Ant
 			this.canAct = false;
 			if (bala.size() > 0)
 			{
+				System.out.println("Soldier Attack!!!");
 				//attack a random bala
 				Ant balaAttack = bala.get(rng.nextInt(bala.size()));
-				if (rng.nextInt(2) == 1)
+				if (rng.nextInt(2) == 1) {
+					System.out.println("Soldier Won!!!");
 					return (new AntEvent(balaAttack, AntEvent.ANT_DEATH_EVENT));
+				}
 			}
 			else
 			{

@@ -54,7 +54,7 @@ public class EnvironmentManager
 		{
 			if (event.type == AntEvent.QUEEN_DEATH_EVENT)
 			{
-				//System.out.println("QUEEN_DEATH_EVENT");
+				System.out.println("QUEEN_DEATH_EVENT");
 				return false;
 			}
 			else if (event.type == AntEvent.ANT_MOVE_EVENT)
@@ -91,6 +91,11 @@ public class EnvironmentManager
 			else if (event.type == AntEvent.ANT_DEATH_EVENT)
 			{
 				this.numDead++;
+				if (event.ant.type == 0)
+				{
+					System.out.println("Bala killed Queen!!!");
+					return false;
+				}
 				//System.out.println("ANT_DEATH_EVENT: " + event.ant.type);
 				env.antColony.destroyAnt(event.ant);
 			}

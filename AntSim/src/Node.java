@@ -77,7 +77,11 @@ public class Node
 	public List<Ant> getFriendlyAnts()
 	{
 		List<Ant> friendly = new ArrayList<>();
-
+		for (Ant ant : antList)
+		{
+			if (ant.type == 0 || ant.type == 1 || ant.type == 2 || ant.type == 3)
+				friendly.add(ant);
+		}
 		return friendly;
 	}
 

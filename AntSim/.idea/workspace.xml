@@ -25,18 +25,18 @@
       <file leaf-file-name="Simulation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Simulation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+            <state relative-caret-position="465">
+              <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnvironmentManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnvironmentManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EnvironmentManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="803">
-              <caret line="92" column="31" lean-forward="false" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+            <state relative-caret-position="785">
+              <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,11 +56,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Colony.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Colony.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Colony.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="796">
               <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AntSimGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AntSimGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1707">
+              <caret line="142" column="26" lean-forward="true" selection-start-line="142" selection-start-column="26" selection-end-line="142" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -82,16 +92,16 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1374">
-              <caret line="103" column="47" lean-forward="true" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="47" />
+            <state relative-caret-position="171">
+              <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#690#691#0" expanded="true" />
                 <element signature="e#722#723#0" expanded="true" />
                 <element signature="e#761#762#0" expanded="true" />
                 <element signature="e#796#797#0" expanded="true" />
-                <element signature="e#2272#2273#0" expanded="true" />
-                <element signature="e#2313#2314#0" expanded="true" />
+                <element signature="e#2401#2402#0" expanded="true" />
+                <element signature="e#2442#2443#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,8 +130,8 @@
       <file leaf-file-name="Soldier.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Soldier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+            <state relative-caret-position="392">
+              <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,8 +162,8 @@
       <file leaf-file-name="Bala.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Bala.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+            <state relative-caret-position="540">
+              <caret line="36" column="116" lean-forward="false" selection-start-line="36" selection-start-column="116" selection-end-line="36" selection-end-column="116" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,18 +195,18 @@
       <list>
         <option value="$PROJECT_DIR$/src/Event.java" />
         <option value="$PROJECT_DIR$/src/Driver.java" />
-        <option value="$PROJECT_DIR$/src/Bala.java" />
         <option value="$PROJECT_DIR$/src/Queen.java" />
         <option value="$PROJECT_DIR$/src/Scout.java" />
-        <option value="$PROJECT_DIR$/src/Soldier.java" />
         <option value="$PROJECT_DIR$/src/AntEvent.java" />
         <option value="$PROJECT_DIR$/src/Colony.java" />
-        <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/Ant.java" />
         <option value="$PROJECT_DIR$/src/Forager.java" />
         <option value="$PROJECT_DIR$/src/Environment.java" />
-        <option value="$PROJECT_DIR$/src/EnvironmentManager.java" />
+        <option value="$PROJECT_DIR$/src/Soldier.java" />
+        <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/Simulation.java" />
+        <option value="$PROJECT_DIR$/src/Bala.java" />
+        <option value="$PROJECT_DIR$/src/EnvironmentManager.java" />
       </list>
     </option>
   </component>
@@ -385,12 +395,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512731596449</updated>
       <workItem from="1512731601021" duration="74825000" />
-      <workItem from="1513085437343" duration="7498000" />
+      <workItem from="1513085437343" duration="9476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82323000" />
+    <option name="totallyTimeSpent" value="84301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
@@ -405,7 +415,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29640287" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29640287" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -485,8 +495,8 @@
             <element signature="e#722#723#0" expanded="true" />
             <element signature="e#761#762#0" expanded="true" />
             <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#2272#2273#0" expanded="true" />
-            <element signature="e#2313#2314#0" expanded="true" />
+            <element signature="e#2401#2402#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -551,24 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AntSimGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="34" column="34" lean-forward="true" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Soldier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Scout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -612,19 +604,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/Forager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1374">
-          <caret line="103" column="47" lean-forward="true" selection-start-line="103" selection-start-column="47" selection-end-line="103" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#690#691#0" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#2272#2273#0" expanded="true" />
-            <element signature="e#2313#2314#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="480">
+          <caret line="32" column="85" lean-forward="true" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Colony.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="796">
+          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AntSimGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1707">
+          <caret line="142" column="26" lean-forward="true" selection-start-line="142" selection-start-column="26" selection-end-line="142" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -632,24 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bala.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Forager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="85" lean-forward="true" selection-start-line="32" selection-start-column="85" selection-end-line="32" selection-end-column="85" />
           <folding />
         </state>
       </provider>
@@ -664,29 +646,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EnvironmentManager.java">
+    <entry file="file://$PROJECT_DIR$/src/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="803">
-          <caret line="92" column="31" lean-forward="false" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+        <state relative-caret-position="171">
+          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#2401#2402#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Simulation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+        <state relative-caret-position="465">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Colony.java">
+    <entry file="file://$PROJECT_DIR$/src/Soldier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="392">
+          <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bala.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="116" lean-forward="false" selection-start-line="36" selection-start-column="116" selection-end-line="36" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnvironmentManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="92" column="31" lean-forward="true" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

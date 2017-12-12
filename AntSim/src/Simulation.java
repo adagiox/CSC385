@@ -8,7 +8,7 @@ public class Simulation
 	int turn;
 	int daysElapsed;
 	boolean running;
-	AntSimGUI antSimGUI;
+	//AntSimGUI antSimGUI;
 	Environment env;
 	EnvironmentManager envManager;
 
@@ -18,7 +18,7 @@ public class Simulation
 		this.turn = 1;
 		this.daysElapsed = 0;
 		this.running = true;
-		this.antSimGUI = new AntSimGUI();
+		//this.antSimGUI = new AntSimGUI();
 		this.env = new Environment();
 		this.envManager = new EnvironmentManager(this.env);
 	}
@@ -51,13 +51,14 @@ public class Simulation
 	{
 		while (true)
 		{
-			//System.out.println("----------------------------\nTURN: " + turn + "\n");
+			System.out.println("----------------------------\nTURN: " + turn + "\n");
 			if (this.nextTurn() == false)
 				break ;
 			turn++;
-			//env.environmentGrid[14][14].printNodeContent();
+			env.environmentGrid[14][14].printNodeContent();
 //			env.printEnv();
-			//System.out.println("Days elapsed: " + daysElapsed);
+			System.out.println("Days elapsed: " + daysElapsed);
+			env.printEnv();
 			if (turn > 10)
 			{
 				daysElapsed++;
