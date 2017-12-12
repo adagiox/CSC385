@@ -101,6 +101,24 @@ public class Node
 		return (this.adjacentNodes.get(rng.nextInt(this.adjacentNodes.size())));
 	}
 
+	public Node getAdjacentPheromone()
+	{
+		List<Node> max = null;
+		Random rng = new Random();
+		int p = 0;
+		for (Node n : adjacentNodes)
+		{
+			if (n.pheromone >= p)
+			{
+				max.add(n);
+				p = n.pheromone;
+			}
+		}
+		if (max.isEmpty())
+			return null;
+		return (max.get(rng.nextInt(max.size())));
+	}
+
 	public void setAdjacentNodes(List<Node> adjacentNodes)
 	{
 		this.adjacentNodes = adjacentNodes;

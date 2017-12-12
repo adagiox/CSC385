@@ -59,6 +59,8 @@ public class Colony
 		// ant possibly already died from another action
 		if (ant.isAlive == false)
 			return true;
+		if (ant.type == 1 && ant.hasFood == true)
+			ant.currentNode.food++;
 		ant.isAlive = false;
 		ant.currentNode.removeAnt(ant);
 		ant.currentNode = null;

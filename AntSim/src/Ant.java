@@ -6,6 +6,7 @@ abstract public class Ant
 	int id;
 	int daysUntilDeath;
 	int type;
+	boolean hasFood;
 	boolean canAct;
 	boolean isAlive;
 	Node currentNode;

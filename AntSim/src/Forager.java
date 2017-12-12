@@ -4,7 +4,6 @@ import java.util.List;
 public class Forager extends Ant
 {
 	int mode;
-	boolean hasFood;
 	List<Node> history;
 
 	public Forager(int id, Node currentNode)
@@ -24,9 +23,11 @@ public class Forager extends Ant
 	{
 		if (this.canAct == true)
 		{
+			this.canAct = false;
 			if (this.mode == 0)
 			{
-
+				Node dest = this.currentNode.getAdjacentPheromone();
+				return (new AntEvent(this, this.currentNode, dest, AntEvent.ANT_MOVE_EVENT));
 			}
 			else
 			{
