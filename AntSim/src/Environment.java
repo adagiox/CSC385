@@ -96,6 +96,26 @@ public class Environment
 		return pheromones;
 	}
 
+	public void printEnv()
+	{
+		System.out.println("Food Summary: ");
+		int numEmpty = 0;
+		int numNonempty = 0;
+		for (Node[] i : environmentGrid)
+		{
+			for (Node n : i)
+			{
+				if (n.food == 0)
+					numEmpty++;
+				else
+					numNonempty++;
+			}
+		}
+		System.out.println("Empty Nodes: " + numEmpty);
+		System.out.println("Nonempty Nodes: " + numNonempty);
+
+	}
+
 	public boolean resetEnvironment()
 	{
 		//reset the entire environment (nodes and colony)

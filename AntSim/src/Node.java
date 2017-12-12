@@ -101,13 +101,15 @@ public class Node
 		return (this.adjacentNodes.get(rng.nextInt(this.adjacentNodes.size())));
 	}
 
-	public Node getAdjacentPheromone()
+	public Node getAdjacentPheromone(Node prev)
 	{
-		List<Node> max = null;
+		List<Node> max = new ArrayList<>();
 		Random rng = new Random();
 		int p = 0;
 		for (Node n : adjacentNodes)
 		{
+			if (n == prev)
+				continue;
 			if (n.pheromone >= p)
 			{
 				max.add(n);

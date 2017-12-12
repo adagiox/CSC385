@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class Forager extends Ant
 {
-	int mode;
-	List<Node> history;
+	Stack<Node> history;
 
 	public Forager(int id, Node currentNode)
 	{
@@ -15,7 +13,7 @@ public class Forager extends Ant
 		this.isAlive = true;
 		this.currentNode = currentNode;
 		this.hasFood = false;
-		this.history = new ArrayList();
+		this.history = new Stack<>();
 		this.mode = 0;
 	}
 
@@ -26,12 +24,17 @@ public class Forager extends Ant
 			this.canAct = false;
 			if (this.mode == 0)
 			{
-				Node dest = this.currentNode.getAdjacentPheromone();
+				Node dest;
+				if (!history.empty())
+					dest = this.currentNode.getAdjacentPheromone(history.peek());
+				else
+					dest = this.currentNode.getAdjacentPheromone(null);
+				history.push(currentNode);
 				return (new AntEvent(this, this.currentNode, dest, AntEvent.ANT_MOVE_EVENT));
 			}
 			else
 			{
-
+				return (new AntEvent(this, this.currentNode, this.history.pop(), AntEvent.ANT_MOVE_EVENT));
 			}
 		}
 		return null;
