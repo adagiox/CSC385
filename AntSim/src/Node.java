@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Node
 {
+	ColonyNodeView nodeView;
 	boolean isVisible;
 	List<Ant> antList;
 	int food;
@@ -11,7 +12,7 @@ public class Node
 	boolean isEntrance;
 	List<Node> adjacentNodes;
 
-	public Node(boolean entrance)
+	public Node(boolean entrance, int row, int col)
 	{
 		if (entrance == true)
 		{
@@ -29,10 +30,38 @@ public class Node
 			this.isEntrance = false;
 			this.isVisible = false;
 		}
+		this.nodeView = setupNodeView(row, col);
 		this.adjacentNodes = null;
 		this.pheromone = 0;
 		this.antList = new ArrayList();
 	}
+
+	public ColonyNodeView setupNodeView(int row, int col)
+	{
+		ColonyNodeView cnv = new ColonyNodeView();
+		if (this.isEntrance == true)
+		{
+			cnv.showNode();
+			cnv.setQueen(true);
+			cnv.setForagerCount(50);
+			cnv.setScoutCount(4);
+			cnv.setSoldierCount(10);
+		}
+		else
+		{
+			cnv.hideNode();
+			cnv.setForagerCount(0);
+			cnv.setScoutCount(0);
+			cnv.setSoldierCount(0);
+			cnv.setBalaCount(0);
+		}
+		cnv.setID(new String(row + ", " + col));
+		cnv.setFoodAmount(this.food);
+		cnv.setPheromoneLevel(this.pheromone);
+
+		return cnv;
+	}
+
 	public boolean addAnt(Ant ant)
 	{
 		return (antList.add(ant));

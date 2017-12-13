@@ -67,11 +67,11 @@ public class CommonElements
 
 	public Comparable[] findCommonElements(Comparable[][] collections)
 	{
-		Comparable[] commonElements;
+		Comparable[] commonElements = null;
 		Comparable[][][] freqList;
 		collections = sortCollections(collections);
 		freqList = getFrequency(collections);
-		commonElements = getCommonElements(freqList);
+//		commonElements = getCommonElements(freqList);
 
 		return (commonElements);
 	}
@@ -108,13 +108,13 @@ public class CommonElements
 		return (freqList);
 	}
 
-	public Comparable[] getCommonElements(Comparable[][][] freqList)
-	{
-		freqList = setQuery(freqList);
-
-
-		return (commonElements);
-	}
+//	public Comparable[] getCommonElements(Comparable[][][] freqList)
+//	{
+//		freqList = setQuery(freqList);
+//
+//
+//		return (commonElements);
+//	}
 
 	public Comparable[] setFrequencyObject(Comparable obj, Comparable[] list, int it)
 	{

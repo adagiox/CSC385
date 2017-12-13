@@ -1,4 +1,4 @@
-public class Simulation
+public class Simulation implements SimulationEventListener
 {
 
 	public final static int STEP_TYPE = 0;
@@ -8,29 +8,32 @@ public class Simulation
 	int turn;
 	int daysElapsed;
 	boolean running;
-	//AntSimGUI antSimGUI;
+	AntSimGUI antSimGUI;
 	Environment env;
 	EnvironmentManager envManager;
 
 	public Simulation()
 	{
-		this.simType = 1;
+		this.initSimulation(0);
+		this.antSimGUI = new AntSimGUI();
+		antSimGUI.initGUI(env.cv);
+		antSimGUI.setTime(new String(daysElapsed + ", " + turn));
+		antSimGUI.addSimulationEventListener(this);
+	}
+
+	public void initSimulation(int type)
+	{
+		this.simType = type;
 		this.turn = 1;
 		this.daysElapsed = 0;
 		this.running = true;
-		//this.antSimGUI = new AntSimGUI();
 		this.env = new Environment();
 		this.envManager = new EnvironmentManager(this.env);
 	}
 
-	public boolean nextDay()
-	{
-		// reset ants
-		return true;
-	}
-
 	public boolean nextTurn()
 	{
+		System.out.println("Turn: " + turn);
 		envManager.getEvents(turn);
 		if (envManager.processEvents() == false)
 			return false;
@@ -39,11 +42,14 @@ public class Simulation
 
 	public boolean runStep()
 	{
-		//env.environmentGrid[14][14].printNodeContent();
 		if (this.nextTurn() == false)
 			return false;
-		//env.environmentGrid[14][14].printNodeContent();
 		this.turn++;
+		if (turn > 10)
+		{
+			daysElapsed++;
+			turn = 1;
+		}
 		return true;
 	}
 
@@ -51,20 +57,14 @@ public class Simulation
 	{
 		while (true)
 		{
-			System.out.println("----------------------------\nTURN: " + turn + "\n");
 			if (this.nextTurn() == false)
 				break ;
 			turn++;
-			env.environmentGrid[14][14].printNodeContent();
-//			env.printEnv();
-			System.out.println("Days elapsed: " + daysElapsed);
-			env.printEnv();
 			if (turn > 10)
 			{
 				daysElapsed++;
 				turn = 1;
 			}
-
 		}
 		return false;
 	}
@@ -75,8 +75,6 @@ public class Simulation
 			this.runStep();
 		else
 			this.runCont();
-		env.printEnv();
-		System.out.println(envManager.numDead);
 		return true;
 	}
 
@@ -84,5 +82,34 @@ public class Simulation
 	{
 		// cleanup
 		return true;
+	}
+
+	@Override
+	public void simulationEventOccurred(SimulationEvent simEvent)
+	{
+		if (simEvent.getEventType() == SimulationEvent.NORMAL_SETUP_EVENT)
+		{
+			this.initSimulation(0);
+		}
+		else if (simEvent.getEventType() == SimulationEvent.STEP_EVENT)
+		{
+			if (this.simType == 0)
+				this.runStep();
+			else
+			{
+				this.initSimulation(0);
+			}
+		}
+		else if (simEvent.getEventType() == SimulationEvent.RUN_EVENT)
+		{
+			if (this.simType == 1)
+				this.runCont();
+			else
+			{
+				this.initSimulation(1);
+			}
+		}
+		else
+			return ;
 	}
 }

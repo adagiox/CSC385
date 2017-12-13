@@ -8,21 +8,27 @@ public class Environment
 	List<Node> edgeNodes;
 	List<Node> pheromonesList;
 	Colony antColony;
+	ColonyView cv;
 	public Environment()
 	{
 		environmentGrid = new Node[27][27];
 		antColony = new Colony();
 		edgeNodes = new ArrayList<>();
 		pheromonesList = new ArrayList<>();
+		cv = new ColonyView(27, 27);
 		for (int i = 0; i < 27; i++)
 		{
 			for (int j = 0; j < 27; j++)
 			{
 				if (i == 14 && j == 14)
-					environmentGrid[i][j] = new Node(true);
+				{
+					environmentGrid[i][j] = new Node(true, i, j);
+					cv.addColonyNodeView(environmentGrid[i][j].nodeView, j, i);
+				}
 				else
 				{
-					environmentGrid[i][j] = new Node(false);
+					environmentGrid[i][j] = new Node(false, i , j);
+					cv.addColonyNodeView(environmentGrid[i][j].nodeView, j, i);
 					if (i == 0 || j == 0 || i == 26 || j == 26)
 						edgeNodes.add(environmentGrid[i][j]);
 				}
