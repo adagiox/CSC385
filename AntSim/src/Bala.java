@@ -22,20 +22,13 @@ public class Bala extends Ant
 			List<Ant> friendly = currentNode.getFriendlyAnts();
 			if (friendly.size() > 0)
 			{
-				System.out.println("Bala Attack!!!");System.out.println("Bala Attack!!!");
 				// attack random friendly ant
 				Random rng = new Random();
 				if (rng.nextInt(2) == 1)
-				{
-					System.out.println("Bala Attack!!!");
 					return (new AntEvent(friendly.get(rng.nextInt(friendly.size())), AntEvent.ANT_DEATH_EVENT));
-				}
 			}
 			else
-			{
-				//System.out.println("Bala move!!!");
 				return (new AntEvent(this, currentNode, currentNode.getRandomAdjacentNode(), AntEvent.ANT_MOVE_EVENT));
-			}
 		}
 		return null;
 	}
@@ -43,17 +36,13 @@ public class Bala extends Ant
 	public AntEvent reset(int turn)
 	{
 		if (turn != 10)
-		{
 			this.canAct = true;
-		}
 		else
 		{
 			this.canAct = true;
 			this.daysUntilDeath--;
 			if (this.daysUntilDeath <= 0)
-			{
 				return (new AntEvent(this, AntEvent.ANT_DEATH_EVENT));
-			}
 		}
 		return null;
 	}

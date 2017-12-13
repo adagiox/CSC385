@@ -42,6 +42,7 @@ public class Simulation implements SimulationEventListener
 
 	public boolean runStep()
 	{
+		antSimGUI.setTime(new String(daysElapsed + ", " + turn));
 		if (this.nextTurn() == false)
 			return false;
 		this.turn++;
@@ -57,6 +58,7 @@ public class Simulation implements SimulationEventListener
 	{
 		while (true)
 		{
+			antSimGUI.setTime(new String(daysElapsed + ", " + turn));
 			if (this.nextTurn() == false)
 				break ;
 			turn++;

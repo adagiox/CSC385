@@ -23,22 +23,16 @@ public class Soldier extends Ant
 			this.canAct = false;
 			if (bala.size() > 0)
 			{
-				System.out.println("Soldier Attack!!!");
-				//attack a random bala
 				Ant balaAttack = bala.get(rng.nextInt(bala.size()));
-				if (rng.nextInt(2) == 1) {
-					System.out.println("Soldier Won!!!");
+				if (rng.nextInt(2) == 1)
 					return (new AntEvent(balaAttack, AntEvent.ANT_DEATH_EVENT));
-				}
 			}
 			else
 			{
 				// move to a bala in adjacent node or move randomly
 				List<Node> adjBala = currentNode.getVisibleAdjacentBala();
 				if (adjBala.size() > 0)
-				{
 					return (new AntEvent(this, currentNode, adjBala.get(rng.nextInt(adjBala.size())), AntEvent.ANT_MOVE_EVENT));
-				}
 				else
 				{
 					Node dest = currentNode.getVisibleRandomAdjacentNode();
@@ -54,17 +48,13 @@ public class Soldier extends Ant
 	public AntEvent reset(int turn)
 	{
 		if (turn != 10)
-		{
 			this.canAct = true;
-		}
 		else
 		{
 			this.canAct = true;
 			this.daysUntilDeath--;
 			if (this.daysUntilDeath <= 0)
-			{
 				return (new AntEvent(this, AntEvent.ANT_DEATH_EVENT));
-			}
 		}
 		return null;
 	}

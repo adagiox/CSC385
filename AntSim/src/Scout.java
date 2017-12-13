@@ -24,16 +24,12 @@ public class Scout extends Ant
 	public AntEvent reset(int turn)
 	{
 		if (turn != 10)
-		{
 			this.canAct = true;
-		}
 		else
 		{
 			this.daysUntilDeath--;
 			if (this.daysUntilDeath <= 0)
-			{
 				return (new AntEvent(this, AntEvent.ANT_DEATH_EVENT));
-			}
 		}
 		return null;
 	}

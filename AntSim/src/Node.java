@@ -11,7 +11,10 @@ public class Node
 	int pheromone;
 	boolean isEntrance;
 	List<Node> adjacentNodes;
-
+	int foragerCount;
+	int scoutCount;
+	int soldierCount;
+	int balaCount;
 	public Node(boolean entrance, int row, int col)
 	{
 		if (entrance == true)
@@ -30,6 +33,10 @@ public class Node
 			this.isEntrance = false;
 			this.isVisible = false;
 		}
+		this.foragerCount = 0;
+		this.scoutCount = 0;
+		this.soldierCount = 0;
+		this.balaCount = 0;
 		this.nodeView = setupNodeView(row, col);
 		this.adjacentNodes = null;
 		this.pheromone = 0;
@@ -64,11 +71,27 @@ public class Node
 
 	public boolean addAnt(Ant ant)
 	{
+		if (ant.type == 1)
+			foragerCount++;
+		else if (ant.type == 2)
+			scoutCount++;
+		else if (ant.type == 3)
+			soldierCount++;
+		else if (ant.type == 4)
+			balaCount++;
 		return (antList.add(ant));
 	}
 
 	public boolean removeAnt(Ant ant)
 	{
+		if (ant.type == 1)
+			foragerCount--;
+		else if (ant.type == 2)
+			scoutCount--;
+		else if (ant.type == 3)
+			soldierCount--;
+		else if (ant.type == 4)
+			balaCount--;
 		return (antList.remove(ant));
 	}
 

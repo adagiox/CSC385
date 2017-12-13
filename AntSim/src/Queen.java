@@ -45,10 +45,7 @@ public class Queen extends Ant
 		if (this.hasEaten == false)
 		{
 			if (this.eatFood() == false)
-			{
-				System.out.println("Queen died from starvation!");
 				return (new AntEvent(AntEvent.QUEEN_DEATH_EVENT));
-			}
 		}
 		if (this.hasBirthed == false)
 			return (new AntEvent(currentNode, this.birthAnt(), AntEvent.ANT_CREATE_EVENT));
@@ -58,19 +55,14 @@ public class Queen extends Ant
 	public AntEvent reset(int turn)
 	{
 		if (turn != 10)
-		{
 			this.hasEaten = false;
-		}
 		else
 		{
 			this.hasEaten = false;
 			this.hasBirthed = false;
 			this.daysUntilDeath--;
 			if (this.daysUntilDeath <= 0)
-			{
-				System.out.println("Queen died from old age!");
 				return (new AntEvent(this, AntEvent.ANT_DEATH_EVENT));
-			}
 		}
 		return null;
 	}

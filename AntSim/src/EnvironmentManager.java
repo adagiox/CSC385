@@ -9,14 +9,12 @@ public class EnvironmentManager
 	// on each turn it should query every living ant for new events
 	Queue<AntEvent> eventQueue;
 	Environment env;
-	int numDead;
 	public EnvironmentManager(Environment env)
 	{
 		this.eventQueue = new LinkedList<>();
 		this.env = env;
 		this.eventQueue.addAll(env.createStartingAnts());
 		this.processEvents();
-		this.numDead = 0;
 	}
 
 	public boolean getEvents(int turn)
@@ -54,7 +52,7 @@ public class EnvironmentManager
 		{
 			if (event.type == AntEvent.QUEEN_DEATH_EVENT)
 			{
-				System.out.println("QUEEN_DEATH_EVENT");
+				//System.out.println("QUEEN_DEATH_EVENT");
 				return false;
 			}
 			else if (event.type == AntEvent.ANT_MOVE_EVENT)
@@ -68,42 +66,95 @@ public class EnvironmentManager
 						event.ant.hasFood = true;
 						event.dest.food--;
 						event.ant.mode = 1;
+						event.dest.nodeView.setFoodAmount(event.dest.food);
 					}
 					if (event.dest.isEntrance && event.ant.hasFood == true)
 					{
 						event.dest.food++;
 						event.ant.hasFood = false;
 						event.ant.mode = 0;
-						Forager f = (Forager)event.ant;
-						//System.out.println(f.history.empty());
+						event.dest.nodeView.setFoodAmount(event.dest.food);
 					}
 				}
 				if (event.dest.isVisible == false && event.ant.type == 2)
 					eventQueue.add(new AntEvent(event.dest, AntEvent.NODE_REVEALED_EVENT));
 				//System.out.println("ANT_MOVE_EVENT: " + event.ant.type);
 				env.moveAnt(event.ant, event.source, event.dest);
+				if (event.ant.type == 1)
+				{
+					event.source.nodeView.setForagerCount(event.source.foragerCount);
+					event.dest.nodeView.setForagerCount(event.dest.foragerCount);
+				}
+				else if (event.ant.type == 2)
+				{
+					event.source.nodeView.setScoutCount(event.source.scoutCount);
+					event.dest.nodeView.setScoutCount(event.dest.scoutCount);
+				}
+				else if (event.ant.type == 3)
+				{
+					event.source.nodeView.setSoldierCount(event.source.soldierCount);
+					event.dest.nodeView.setSoldierCount(event.dest.soldierCount);
+				}
+				else if (event.ant.type == 4)
+				{
+					event.source.nodeView.setBalaCount(event.source.balaCount);
+					event.dest.nodeView.setBalaCount(event.dest.balaCount);
+				}
 			}
 			else if (event.type == AntEvent.ANT_CREATE_EVENT)
 			{
-				//System.out.println("ANT_CREATE_EVENT: " + event.antType);
 				env.antColony.createAnt(event.antType, event.node);
+				if (event.antType == 1)
+				{
+					event.node.nodeView.setForagerCount(event.node.foragerCount);
+				}
+				else if (event.antType == 2)
+				{
+					event.node.nodeView.setScoutCount(event.node.scoutCount);
+				}
+				else if (event.antType == 3)
+				{
+					event.node.nodeView.setSoldierCount(event.node.soldierCount);
+				}
+				else if (event.antType == 4)
+				{
+					event.node.nodeView.setBalaCount(event.node.balaCount);
+				}
 			}
 			else if (event.type == AntEvent.ANT_DEATH_EVENT)
 			{
-				this.numDead++;
 				if (event.ant.type == 0)
 				{
-					System.out.println("Bala killed Queen!!!");
+					//System.out.println("Bala killed Queen!!!");
 					return false;
 				}
 				if (event.ant.type == 1 && event.ant.hasFood)
+				{
 					event.ant.currentNode.food++;
-				//System.out.println("ANT_DEATH_EVENT: " + event.ant.type);
+					event.node.nodeView.setForagerCount(event.ant.currentNode.food);
+				}
 				env.antColony.destroyAnt(event.ant);
+				if (event.antType == 1)
+				{
+					event.node.nodeView.setForagerCount(event.node.foragerCount);
+				}
+				else if (event.antType == 2)
+				{
+					event.node.nodeView.setScoutCount(event.node.scoutCount);
+				}
+				else if (event.antType == 3)
+				{
+					event.node.nodeView.setSoldierCount(event.node.soldierCount);
+				}
+				else if (event.antType == 4)
+				{
+					event.node.nodeView.setBalaCount(event.node.balaCount);
+				}
 			}
 			else if (event.type == AntEvent.NODE_REVEALED_EVENT)
 			{
 				//System.out.println("NODE_REVEALED_EVENT");
+				event.node.nodeView.showNode();
 				event.node.isVisible = true;
 			}
 			else if (event.type == AntEvent.PHEROMONE_DECREASED)
