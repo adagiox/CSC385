@@ -14,21 +14,16 @@ public class Simulation implements SimulationEventListener
 
 	public Simulation()
 	{
-		this.initSimulation(0);
-		this.antSimGUI = new AntSimGUI();
-		antSimGUI.initGUI(env.cv);
-		antSimGUI.setTime(new String(daysElapsed + ", " + turn));
-		antSimGUI.addSimulationEventListener(this);
-	}
-
-	public void initSimulation(int type)
-	{
-		this.simType = type;
+		this.simType = 0;
 		this.turn = 1;
 		this.daysElapsed = 0;
 		this.running = true;
 		this.env = new Environment();
 		this.envManager = new EnvironmentManager(this.env);
+		this.antSimGUI = new AntSimGUI();
+		this.antSimGUI.initGUI(env.cv);
+		this.antSimGUI.setTime(new String(daysElapsed + ", " + turn));
+		this.antSimGUI.addSimulationEventListener(this);
 	}
 
 	public boolean nextTurn()
@@ -37,6 +32,7 @@ public class Simulation implements SimulationEventListener
 		envManager.getEvents(turn);
 		if (envManager.processEvents() == false)
 			return false;
+		envManager.updateAll();
 		return true;
 	}
 
@@ -59,8 +55,10 @@ public class Simulation implements SimulationEventListener
 		while (true)
 		{
 			antSimGUI.setTime(new String(daysElapsed + ", " + turn));
-			if (this.nextTurn() == false)
+			if (this.nextTurn() == false) {
+				System.out.println("DONE!!!");
 				break ;
+			}
 			turn++;
 			if (turn > 10)
 			{
@@ -71,19 +69,16 @@ public class Simulation implements SimulationEventListener
 		return false;
 	}
 
-	public boolean runSimulation()
+	public void resetSimulation(int type)
 	{
-		if (this.simType == Simulation.STEP_TYPE)
-			this.runStep();
-		else
-			this.runCont();
-		return true;
-	}
-
-	public boolean endSimulation()
-	{
-		// cleanup
-		return true;
+		this.simType = type;
+		this.turn = 1;
+		this.daysElapsed = 0;
+		this.running = true;
+		this.env = new Environment();
+		this.envManager = new EnvironmentManager(this.env);
+		this.antSimGUI.initGUI(env.cv);
+		this.antSimGUI.setTime(new String(daysElapsed + ", " + turn));
 	}
 
 	@Override
@@ -91,7 +86,7 @@ public class Simulation implements SimulationEventListener
 	{
 		if (simEvent.getEventType() == SimulationEvent.NORMAL_SETUP_EVENT)
 		{
-			this.initSimulation(0);
+			this.resetSimulation(0);
 		}
 		else if (simEvent.getEventType() == SimulationEvent.STEP_EVENT)
 		{
@@ -99,7 +94,7 @@ public class Simulation implements SimulationEventListener
 				this.runStep();
 			else
 			{
-				this.initSimulation(0);
+				this.resetSimulation(0);
 			}
 		}
 		else if (simEvent.getEventType() == SimulationEvent.RUN_EVENT)
@@ -108,7 +103,7 @@ public class Simulation implements SimulationEventListener
 				this.runCont();
 			else
 			{
-				this.initSimulation(1);
+				this.resetSimulation(1);
 			}
 		}
 		else

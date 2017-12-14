@@ -57,6 +57,8 @@ public class EnvironmentManager
 			}
 			else if (event.type == AntEvent.ANT_MOVE_EVENT)
 			{
+				if (event.dest == null)
+					continue;
 				if (event.ant.type == 1)
 				{
 					if (event.ant.hasFood == true)
@@ -131,24 +133,24 @@ public class EnvironmentManager
 				if (event.ant.type == 1 && event.ant.hasFood)
 				{
 					event.ant.currentNode.food++;
-					event.node.nodeView.setForagerCount(event.ant.currentNode.food);
+					event.ant.currentNode.nodeView.setForagerCount(event.ant.currentNode.food);
 				}
 				env.antColony.destroyAnt(event.ant);
 				if (event.antType == 1)
 				{
-					event.node.nodeView.setForagerCount(event.node.foragerCount);
+					event.ant.currentNode.nodeView.setForagerCount(event.node.foragerCount);
 				}
 				else if (event.antType == 2)
 				{
-					event.node.nodeView.setScoutCount(event.node.scoutCount);
+					event.ant.currentNode.nodeView.setScoutCount(event.node.scoutCount);
 				}
 				else if (event.antType == 3)
 				{
-					event.node.nodeView.setSoldierCount(event.node.soldierCount);
+					event.ant.currentNode.nodeView.setSoldierCount(event.node.soldierCount);
 				}
 				else if (event.antType == 4)
 				{
-					event.node.nodeView.setBalaCount(event.node.balaCount);
+					event.ant.currentNode.nodeView.setBalaCount(event.node.balaCount);
 				}
 			}
 			else if (event.type == AntEvent.NODE_REVEALED_EVENT)
@@ -162,6 +164,7 @@ public class EnvironmentManager
 				//System.out.println("PHEROMONE_DECREASED");
 				if ((event.node.pheromone /= 2) == 0)
 					env.pheromonesList.remove(event.node);
+				event.node.nodeView.setPheromoneLevel(event.node.pheromone);
 				//System.out.println(event.node.pheromone);
 			}
 			else if (event.type == AntEvent.PHEROMONE_INCREASED)
@@ -171,8 +174,25 @@ public class EnvironmentManager
 				//System.out.println("PHEROMONE_INCREASED");
 				if (event.node.pheromone < 1000)
 					event.node.pheromone += 10;
+				event.node.nodeView.setPheromoneLevel(event.node.pheromone);
 			}
 		}
 		return true;
+	}
+
+	public void updateAll()
+	{
+		for (Node[] a : env.environmentGrid)
+		{
+			for (Node n : a)
+			{
+				n.nodeView.showNode();
+				n.nodeView.setForagerCount(n.foragerCount);
+				n.nodeView.setScoutCount(n.scoutCount);
+				n.nodeView.setSoldierCount(n.soldierCount);
+				n.nodeView.setBalaCount(n.balaCount);
+				n.nodeView.setPheromoneLevel(n.pheromone);
+			}
+		}
 	}
 }
