@@ -164,7 +164,7 @@ public class Node
 		int p = 0;
 		for (Node n : adjacentNodes)
 		{
-			if (n == prev)
+			if (n == prev || n.isVisible == false)
 				continue;
 			if (n.pheromone >= p)
 			{
